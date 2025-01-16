@@ -1,0 +1,29 @@
+{
+  "name": "prisma",
+  "version": "1.0.0",
+  "description": "a simple prisma project",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon script.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samm-01/prisma.git"
+  },
+  "author": "sameer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samm-01/prisma/issues"
+  },
+  "homepage": "https://github.com/samm-01/prisma#readme",
+  "devDependencies": {
+    "prisma": "^6.2.1",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.2.1",
+    "@types/node": "^22.10.7",
+    "nodemon": "^3.1.9",
+    "ts-node": "^10.9.2"
+  }
+}
