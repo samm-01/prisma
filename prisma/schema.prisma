@@ -8,16 +8,17 @@ datasource db {
 }
 
 model User {
-  id             String          @id @default(uuid())
-  age            Int
-  email          String          @unique
-  name           String?
-  role           Role            @default(BASIC)
+  id               String          @id @default(uuid())
+  age              Int
+  email            String          @unique
+  name             String?
+  role             Role            @default(BASIC)
   // isAdmin        Boolean
   // largeNumber BigInt
-  writtenPosts   Post[]          @relation("WrittenPosts")
-  favoritePosts  Post[]          @relation("FavoritePosts")
-  userPreference UserPreference?
+  writtenPosts     Post[]          @relation("WrittenPosts")
+  favoritePosts    Post[]          @relation("FavoritePosts")
+  userPreference   UserPreference? @relation(fields: [userPreferenceId], references: [id])
+  userPreferenceId String?         @unique
 
   @@unique([name, age])
   @@index([email])
@@ -26,8 +27,7 @@ model User {
 model UserPreference {
   id           String  @id @default(uuid())
   emailUpdates Boolean
-  user         User    @relation(fields: [userId], references: [id])
-  userId       String  @unique
+  User         User?
 }
 
 model Post {
